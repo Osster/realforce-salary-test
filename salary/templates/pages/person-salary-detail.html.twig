@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<h1>{{ person.getName() }}</h1>
+	<a href="/person/{{ person.getId() }}/">Back</a>
+	<table>
+		<tr>
+			<th>Period</th>
+			<th>Rate</th>
+			<th>Additions</th>
+			<th>Deductions</th>
+			<th>Taxes</th>
+			<th>Total</th>
+			<th>Updated At</th>
+		</tr>
+		<tr>
+			<td>{{ salary.getYear() }}.{{ salary.getMonth() }}</td>
+			<td>{{ salary.getRate() }}</td>
+			<td>{{ salary.getAdditions() }}</td>
+			<td>{{ salary.getDeductions() }}</td>
+			<td>{{ salary.getTaxes() }}</td>
+			<td>{{ salary.getTotal() }}</td>
+			<td>{{ salary.getUpdatedAt().format('d/m/Y H:i') }}</td>
+		</tr>
+	</table>
+
+	<table>
+		<tr>
+			<th>Type</th>
+			<th>Value</th>
+			<th>Updated At</th>
+		</tr>
+		{% for row in items %}
+			<tr>
+				<td>{{ row.getType() }}</td>
+				<td>{{ row.getValue() }}</td>
+				<td>{{ row.getUpdatedAt().format('d/m/Y H:i') }}</td>
+			</tr>
+		{% endfor %}
+	</table>
+{% endblock %}

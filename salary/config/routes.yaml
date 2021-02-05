@@ -1,3 +1,15 @@
 index:
     path: /
     controller: App\Controller\HomeController::index
+person_item:
+    path: /person/{person_id}/
+    controller: App\Controller\HomeController::personSalary
+person_item_details:
+    path: /person/{person_id}/salary/{salary_id}/
+    controller: App\Controller\HomeController::personSalaryDetail
+salary:
+    path: /salary/{year}/{month}
+    controller: App\Controller\HomeController::salary
+calc:
+    path: /calc/
+    controller: App\Controller\HomeController::calc

@@ -1,5 +1,28 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-	Content of the page...
+	Staff:
+	<ul>
+		{% for person in persons %}
+			<li>
+				<a href="/person/{{ person.getId() }}/">{{ person.getName() }}</a>
+			</li>
+		{% endfor %}
+	</ul>
+
+	<form action="/calc/" method="post">
+
+		<div class="period">
+			<label for="period">Period:</label>
+			<select name="period" id="period">
+				{% for p in formData['period'] %}
+					<option value="{{p}}">{{p}}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="submit">
+			<button type="submit">Calculate</button>
+		</div>
+
+	</form>
 {% endblock %}
